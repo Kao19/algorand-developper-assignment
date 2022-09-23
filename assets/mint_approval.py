@@ -22,8 +22,6 @@ def mint_approval():
             TxnField.config_asset_decimals: Int(0),
             TxnField.config_asset_unit_name: Bytes("TSLA"),
             TxnField.config_asset_name: Bytes("Tesla"),
-            TxnField.config_asset_manager: Global.current_application_address(),
-            TxnField.config_asset_freeze: Global.current_application_address(),
         }),
         InnerTxnBuilder.Submit(),
         App.globalPut(Bytes("Id"), InnerTxn.created_asset_id()),
@@ -50,6 +48,7 @@ def mint_approval():
         Assert(basic_checks),
         Assert(Txn.sender() == Global.creator_address()), # creator only function
         Assert(amountToSendForTransfer <= balance),
+        Assert(App.globalGet(Bytes("Id")) == Txn.assets[0]),
         InnerTxnBuilder.Begin(),
         InnerTxnBuilder.SetFields({
         TxnField.type_enum: TxnType.AssetTransfer,
@@ -67,6 +66,7 @@ def mint_approval():
         Assert(basic_checks),
         Assert(Txn.sender() == Global.creator_address()), # creator only function
         Assert(amountToSendForBurn <= balance),
+        Assert(App.globalGet(Bytes("Id")) == Txn.assets[0]),
         InnerTxnBuilder.Begin(),
         InnerTxnBuilder.SetFields({
         TxnField.type_enum: TxnType.AssetTransfer,

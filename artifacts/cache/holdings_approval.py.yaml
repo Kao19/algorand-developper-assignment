@@ -1,17 +1,26 @@
 filename: holdings_approval.py
-timestamp: 1660821515
-compiled: BiADAQAEJgIRYXNzZXRDdXJyZW50UHJpY2UHYXNzZXRJRDEYIxJAAR0xGSISQAEOMRmBAhJAAQQxGSQSQAD7MRmBBRJAAPExGSMSQAABADEgMgMSMQkyAxIQMRUyAxIQRDYaAIAFb3B0aW4SQACkNhoAgAtVcGRhdGVQcmljZRJAAHA2GgCACHB1cmNoYXNlEkAAAQAxIDIDEjEJMgMSEDEVMgMSEEQyCilkcAA1ATUANAFENAA3AhoBFw9ENwIaAReB6AcORDMBAGAzAQB4CShkNwIaARcLD0SxJLIQMwIAshQ3AhoBF7ISNwIwALIRsyJDMSAyAxIxCTIDEhAxFTIDEhBEMQAyCRJEKDYaARdnIkMxIDIDEjEJMgMSEDEVMgMSEESxJLIQMgqyFCOyEjYwALIRsyJDI0MjQyJDMQAxGGFEIkMxIDIDEjEJMgMSEDEVMgMSEEQpNhoAF2cogcCWsQJnIkM=
-compiledHash: E4J75IHN3SI4Q47ZWXW55H6KY3V6QZ7GJEPA22QW4SG2PRAM4OKQZJ5QQY
-srcHash: 265572490
+timestamp: 1663196637
+compiled: BiAEAQAEAiYCB2Fzc2V0SUQRYXNzZXRDdXJyZW50UHJpY2UxGCMSQAE7MRkiEkABLDEZJRJAASMxGSQSQAEaMRmBBRJAARAxGSMSQAABADEgMgMSMQkyAxIQMRUyAxIQRDYaAIAFb3B0aW4SQAC8NhoAgAtVcGRhdGVQcmljZRJAAIg2GgCACHB1cmNoYXNlEkAAAQAxIDIDEjEJMgMSEDEVMgMSEEQ3ARoBFyMNRDIKKGRwADUBNQA0AUQ0ADcBGgEXD0Q3ATAAKGQSRDIEJRJEMwAQIhJEMwEQgQYSRDMBAGAzAQB4CSlkNwEaARcLD0SxJLIQMwEAshQ3ARoBF7ISNwEwALIRsyJDMSAyAxIxCTIDEhAxFTIDEhBEMQAyCRJEKTYaARdnIkMxIDIDEjEJMgMSEDEVMgMSEEQ2MAAoZBJEsSSyEDIKshQjshI2MACyEbMiQyNDI0MiQzEAMRhhRCJDMSAyAxIxCTIDEhAxFTIDEhBEKDYaABdnKYHAlrECZyJD
+compiledHash: SACA5GDT3KKFLHL2HY5EVPXHL6ZCCFNLPXCY56XSY34CF7E4UHSMOFL6YM
+srcHash: 578464885
 base64ToBytes:
     - 6
     - 32
-    - 3
+    - 4
     - 1
     - 0
     - 4
+    - 2
     - 38
     - 2
+    - 7
+    - 97
+    - 115
+    - 115
+    - 101
+    - 116
+    - 73
+    - 68
     - 17
     - 97
     - 115
@@ -30,51 +39,42 @@ base64ToBytes:
     - 105
     - 99
     - 101
-    - 7
-    - 97
-    - 115
-    - 115
-    - 101
-    - 116
-    - 73
-    - 68
     - 49
     - 24
     - 35
     - 18
     - 64
     - 1
-    - 29
+    - 59
     - 49
     - 25
     - 34
     - 18
     - 64
     - 1
-    - 14
+    - 44
     - 49
     - 25
-    - 129
-    - 2
+    - 37
     - 18
     - 64
     - 1
-    - 4
+    - 35
     - 49
     - 25
     - 36
     - 18
     - 64
-    - 0
-    - 251
+    - 1
+    - 26
     - 49
     - 25
     - 129
     - 5
     - 18
     - 64
-    - 0
-    - 241
+    - 1
+    - 16
     - 49
     - 25
     - 35
@@ -114,7 +114,7 @@ base64ToBytes:
     - 18
     - 64
     - 0
-    - 164
+    - 188
     - 54
     - 26
     - 0
@@ -134,7 +134,7 @@ base64ToBytes:
     - 18
     - 64
     - 0
-    - 112
+    - 136
     - 54
     - 26
     - 0
@@ -171,9 +171,17 @@ base64ToBytes:
     - 18
     - 16
     - 68
+    - 55
+    - 1
+    - 26
+    - 1
+    - 23
+    - 35
+    - 13
+    - 68
     - 50
     - 10
-    - 41
+    - 40
     - 100
     - 112
     - 0
@@ -187,21 +195,37 @@ base64ToBytes:
     - 52
     - 0
     - 55
-    - 2
+    - 1
     - 26
     - 1
     - 23
     - 15
     - 68
     - 55
-    - 2
-    - 26
     - 1
-    - 23
+    - 48
+    - 0
+    - 40
+    - 100
+    - 18
+    - 68
+    - 50
+    - 4
+    - 37
+    - 18
+    - 68
+    - 51
+    - 0
+    - 16
+    - 34
+    - 18
+    - 68
+    - 51
+    - 1
+    - 16
     - 129
-    - 232
-    - 7
-    - 14
+    - 6
+    - 18
     - 68
     - 51
     - 1
@@ -212,10 +236,10 @@ base64ToBytes:
     - 0
     - 120
     - 9
-    - 40
+    - 41
     - 100
     - 55
-    - 2
+    - 1
     - 26
     - 1
     - 23
@@ -227,19 +251,19 @@ base64ToBytes:
     - 178
     - 16
     - 51
-    - 2
+    - 1
     - 0
     - 178
     - 20
     - 55
-    - 2
+    - 1
     - 26
     - 1
     - 23
     - 178
     - 18
     - 55
-    - 2
+    - 1
     - 48
     - 0
     - 178
@@ -271,7 +295,7 @@ base64ToBytes:
     - 9
     - 18
     - 68
-    - 40
+    - 41
     - 54
     - 26
     - 1
@@ -296,6 +320,13 @@ base64ToBytes:
     - 3
     - 18
     - 16
+    - 68
+    - 54
+    - 48
+    - 0
+    - 40
+    - 100
+    - 18
     - 68
     - 177
     - 36
@@ -348,13 +379,13 @@ base64ToBytes:
     - 18
     - 16
     - 68
-    - 41
+    - 40
     - 54
     - 26
     - 0
     - 23
     - 103
-    - 40
+    - 41
     - 129
     - 192
     - 150
@@ -493,6 +524,16 @@ tealCode: "#pragma version 6\r
 
     assert\r
 
+    gtxna 1 ApplicationArgs 1\r
+
+    btoi\r
+
+    int 0\r
+
+    >\r
+
+    assert\r
+
     global CurrentApplicationAddress\r
 
     byte \"assetID\"\r
@@ -511,7 +552,7 @@ tealCode: "#pragma version 6\r
 
     load 0\r
 
-    gtxna 2 ApplicationArgs 1\r
+    gtxna 1 ApplicationArgs 1\r
 
     btoi\r
 
@@ -519,13 +560,37 @@ tealCode: "#pragma version 6\r
 
     assert\r
 
-    gtxna 2 ApplicationArgs 1\r
+    gtxna 1 Assets 0\r
 
-    btoi\r
+    byte \"assetID\"\r
 
-    int 1000\r
+    app_global_get\r
 
-    <=\r
+    ==\r
+
+    assert\r
+
+    global GroupSize\r
+
+    int 2\r
+
+    ==\r
+
+    assert\r
+
+    gtxn 0 TypeEnum\r
+
+    int pay\r
+
+    ==\r
+
+    assert\r
+
+    gtxn 1 TypeEnum\r
+
+    int appl\r
+
+    ==\r
 
     assert\r
 
@@ -543,7 +608,7 @@ tealCode: "#pragma version 6\r
 
     app_global_get\r
 
-    gtxna 2 ApplicationArgs 1\r
+    gtxna 1 ApplicationArgs 1\r
 
     btoi\r
 
@@ -559,17 +624,17 @@ tealCode: "#pragma version 6\r
 
     itxn_field TypeEnum\r
 
-    gtxn 2 Sender\r
+    gtxn 1 Sender\r
 
     itxn_field AssetReceiver\r
 
-    gtxna 2 ApplicationArgs 1\r
+    gtxna 1 ApplicationArgs 1\r
 
     btoi\r
 
     itxn_field AssetAmount\r
 
-    gtxna 2 Assets 0\r
+    gtxna 1 Assets 0\r
 
     itxn_field XferAsset\r
 
@@ -648,6 +713,16 @@ tealCode: "#pragma version 6\r
     ==\r
 
     &&\r
+
+    assert\r
+
+    txna Assets 0\r
+
+    byte \"assetID\"\r
+
+    app_global_get\r
+
+    ==\r
 
     assert\r
 

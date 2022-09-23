@@ -12,13 +12,17 @@ def burn_approval():
         Txn.asset_close_to() == Global.zero_address()
     )
 
+     #to get the asset Id during the deployment and send it within parameters
+    assetID = Btoi(Txn.application_args[0])
     handle_creation = Seq([
         Assert(basic_checks),
+        App.globalPut(Bytes("assetID"), assetID),
         Return(Int(1))
     ])
 
     optin_burn=Seq([
         Assert(basic_checks),
+        Assert(Txn.assets[0] == App.globalGet(Bytes("assetID"))),
         InnerTxnBuilder.Begin(),
         InnerTxnBuilder.SetFields({
         TxnField.type_enum: TxnType.AssetTransfer,

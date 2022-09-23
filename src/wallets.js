@@ -10,7 +10,7 @@ const sendAlgoSignerTransaction = async (txns, algodClient) => {
     if (typeof AlgoSigner !== "undefined") {
         try {
             // Get the binary and base64 encode it
-            let binaryTxs = [txns[0].toByte(), txns[1].toByte() , txns[2].toByte()]; //since we have 3 transactions in the atomic transfer
+            let binaryTxs = [txns[0].toByte(), txns[1].toByte()]; //since we have 3 transactions in the atomic transfer
             let base64Txs = binaryTxs.map((binary) => AlgoSigner.encoding.msgpackToBase64(binary));
 
             let signedTxs = await AlgoSigner.signTxn([
@@ -19,9 +19,6 @@ const sendAlgoSignerTransaction = async (txns, algodClient) => {
                 },
                 {
                     txn: base64Txs[1],
-                },
-                {
-                    txn: base64Txs[2],
                 },
             ]);
 
@@ -41,6 +38,35 @@ const sendAlgoSignerTransaction = async (txns, algodClient) => {
         }
     }
 };
+
+const sendAlgoSignerOptInTransaction = async (txn, algodClient) => {
+    const AlgoSigner = window.AlgoSigner;
+
+    if (typeof AlgoSigner !== "undefined") {
+        try {
+            // Get the binary and base64 encode it
+            let binaryTx = txn.toByte();
+            let base64Tx = AlgoSigner.encoding.msgpackToBase64(binaryTx);
+
+            let signedTxs = await AlgoSigner.signTxn([
+                {
+                    txn: base64Tx,
+                },
+            ]);
+
+            // Get the base64 encoded signed transaction and convert it to binary
+            let binarySignedTx = AlgoSigner.encoding.base64ToMsgpack(signedTxs[0].blob);
+
+            const response = await algodClient.sendRawTransaction(binarySignedTx).do();
+            console.log(response);
+
+            return response;
+        } catch (err) {
+            console.error(err);
+        }
+    }
+};
+
 
 const sendWalletConnectTransaction = async (connector, txn, algodClient) => {
     try {
@@ -102,5 +128,6 @@ const sendMyAlgoTransaction = async (txn, algodClient) => {
 export default {
     sendWalletConnectTransaction,
     sendMyAlgoTransaction,
-    sendAlgoSignerTransaction
+    sendAlgoSignerTransaction,
+    sendAlgoSignerOptInTransaction
 };
