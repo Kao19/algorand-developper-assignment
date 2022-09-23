@@ -89,8 +89,9 @@ async function run(runtimeEnv, deployer) {
             sender: master,
             localInts: 0,
             localBytes: 0,
-            globalInts: 0,
+            globalInts: 1,
             globalBytes: 0,
+            appArgs: [convert.uint64ToBigEndian(assetID)],
         },
         { totalFee: 1000 }
     );

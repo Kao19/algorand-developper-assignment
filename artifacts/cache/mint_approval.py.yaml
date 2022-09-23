@@ -1,8 +1,8 @@
 filename: mint_approval.py
-timestamp: 1660821492
-compiled: BiADAAEEJgECSWQxGCISQAFAMRkjEkABNzEZgQISQAEtMRkkEkABJDEZgQUSQAEaMRkiEkAAAQAxIDIDEjEJMgMSEDEVMgMSEEQ2GgCAC2NyZWF0ZUFzc2V0EkAApzYaAIAIdHJhbnNmZXISQABSNhoAgARidXJuEkAAAQAxIDIDEjEJMgMSEDEVMgMSEEQxADIJEkQ2GgEXMgooZHAANQE1ADQBRDQADkSxJLIQNhwBshQ2GgEXshI2MACyEbMjQzEgMgMSMQkyAxIQMRUyAxIQRDEAMgkSRDYaARcyCihkcAA1ATUANAFENAAORLEkshA2HAGyFDYaAReyEjYwALIRsyNDMSAyAxIxCTIDEhAxFTIDEhBEKGQiEkSxgQOyEIHAhD2yIiKyI4AEVFNMQbIlgAVUZXNsYbImMgqyKTIKsiuzKLQ8ZyNDIkMiQyNDIkMxIDIDEjEJMgMSEDEVMgMSEEQjQw==
-compiledHash: ZICQFG22MHZHUQXUAZZM2B4CVKFXXSTGPECTQHILUVHJQ73YB5N57GQTXQ
-srcHash: 1568289265
+timestamp: 1663196606
+compiled: BiADAAEEJgECSWQxGCISQAFGMRkjEkABPTEZgQISQAEzMRkkEkABKjEZgQUSQAEgMRkiEkAAAQAxIDIDEjEJMgMSEDEVMgMSEEQ2GgCAC2NyZWF0ZUFzc2V0EkAAtTYaAIAIdHJhbnNmZXISQABZNhoAgARidXJuEkAAAQAxIDIDEjEJMgMSEDEVMgMSEEQxADIJEkQ2GgEXMgooZHAANQE1ADQBRDQADkQoZDYwABJEsSSyEDYcAbIUNhoBF7ISNjAAshGzI0MxIDIDEjEJMgMSEDEVMgMSEEQxADIJEkQ2GgEXMgooZHAANQE1ADQBRDQADkQoZDYwABJEsSSyEDYcAbIUNhoBF7ISNjAAshGzI0MxIDIDEjEJMgMSEDEVMgMSEEQoZCISRLGBA7IQgcCEPbIiIrIjgARUU0xBsiWABVRlc2xhsiazKLQ8ZyNDIkMiQyNDIkMxIDIDEjEJMgMSEDEVMgMSEEQjQw==
+compiledHash: V5OYAYLF424M3F3BMQDJBCXI5T3XUP6PHAWB43RODBEPVZHTLMV6WIHVJQ
+srcHash: 2953791331
 base64ToBytes:
   - 6
   - 32
@@ -21,14 +21,14 @@ base64ToBytes:
   - 18
   - 64
   - 1
-  - 64
+  - 70
   - 49
   - 25
   - 35
   - 18
   - 64
   - 1
-  - 55
+  - 61
   - 49
   - 25
   - 129
@@ -36,14 +36,14 @@ base64ToBytes:
   - 18
   - 64
   - 1
-  - 45
+  - 51
   - 49
   - 25
   - 36
   - 18
   - 64
   - 1
-  - 36
+  - 42
   - 49
   - 25
   - 129
@@ -51,7 +51,7 @@ base64ToBytes:
   - 18
   - 64
   - 1
-  - 26
+  - 32
   - 49
   - 25
   - 34
@@ -97,7 +97,7 @@ base64ToBytes:
   - 18
   - 64
   - 0
-  - 167
+  - 181
   - 54
   - 26
   - 0
@@ -114,7 +114,7 @@ base64ToBytes:
   - 18
   - 64
   - 0
-  - 82
+  - 89
   - 54
   - 26
   - 0
@@ -173,6 +173,13 @@ base64ToBytes:
   - 52
   - 0
   - 14
+  - 68
+  - 40
+  - 100
+  - 54
+  - 48
+  - 0
+  - 18
   - 68
   - 177
   - 36
@@ -241,6 +248,13 @@ base64ToBytes:
   - 52
   - 0
   - 14
+  - 68
+  - 40
+  - 100
+  - 54
+  - 48
+  - 0
+  - 18
   - 68
   - 177
   - 36
@@ -319,14 +333,6 @@ base64ToBytes:
   - 97
   - 178
   - 38
-  - 50
-  - 10
-  - 178
-  - 41
-  - 50
-  - 10
-  - 178
-  - 43
   - 179
   - 40
   - 180
@@ -526,6 +532,16 @@ tealCode: "#pragma version 6\r
 
   assert\r
 
+  byte \"Id\"\r
+
+  app_global_get\r
+
+  txna Assets 0\r
+
+  ==\r
+
+  assert\r
+
   itxn_begin\r
 
   int axfer\r
@@ -612,6 +628,16 @@ tealCode: "#pragma version 6\r
 
   assert\r
 
+  byte \"Id\"\r
+
+  app_global_get\r
+
+  txna Assets 0\r
+
+  ==\r
+
+  assert\r
+
   itxn_begin\r
 
   int axfer\r
@@ -695,14 +721,6 @@ tealCode: "#pragma version 6\r
   byte \"Tesla\"\r
 
   itxn_field ConfigAssetName\r
-
-  global CurrentApplicationAddress\r
-
-  itxn_field ConfigAssetManager\r
-
-  global CurrentApplicationAddress\r
-
-  itxn_field ConfigAssetFreeze\r
 
   itxn_submit\r
 
