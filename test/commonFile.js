@@ -92,8 +92,7 @@ const burnAsset = (runtime, account, appID, appAccount, assets) => {
 };
 
 
-const amountToSendTransfer = 2000;
-const transferAsset = (runtime, account, appID, appAccount, assets) => {
+const transferAsset = (runtime, account, appID, appAccount, assets, amountToSendTransfer) => {
     const transfer = [convert.stringToBytes("transfer"),convert.uint64ToBigEndian(amountToSendTransfer)];
     runtime.executeTx({
         type: types.TransactionType.CallApp,

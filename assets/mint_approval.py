@@ -14,6 +14,7 @@ def mint_approval():
 
     create_asset = Seq(
         Assert(basic_checks),
+        Assert(Txn.sender() == Global.creator_address()),
         Assert(App.globalGet(Bytes("Id")) == Int(0)),
         InnerTxnBuilder.Begin(),
         InnerTxnBuilder.SetFields({
@@ -33,6 +34,12 @@ def mint_approval():
         Return(Int(1))
     ])
 
+    saveHoldingBurnAcc = Seq(
+        App.globalPut(Bytes("holdings"), Txn.accounts[1]),
+        App.globalPut(Bytes("burn"), Txn.accounts[2]),
+        Return(Int(1))
+    )
+
 
     senderAssetBalance = AssetHolding.balance(Global.current_application_address(), App.globalGet(Bytes("Id")))
 
@@ -49,6 +56,7 @@ def mint_approval():
         Assert(Txn.sender() == Global.creator_address()), # creator only function
         Assert(amountToSendForTransfer <= balance),
         Assert(App.globalGet(Bytes("Id")) == Txn.assets[0]),
+        Assert(Txn.accounts[1] == App.globalGet(Bytes("holdings"))),
         InnerTxnBuilder.Begin(),
         InnerTxnBuilder.SetFields({
         TxnField.type_enum: TxnType.AssetTransfer,
@@ -67,6 +75,7 @@ def mint_approval():
         Assert(Txn.sender() == Global.creator_address()), # creator only function
         Assert(amountToSendForBurn <= balance),
         Assert(App.globalGet(Bytes("Id")) == Txn.assets[0]),
+        Assert(Txn.accounts[1] == App.globalGet(Bytes("burn"))),
         InnerTxnBuilder.Begin(),
         InnerTxnBuilder.SetFields({
         TxnField.type_enum: TxnType.AssetTransfer,
@@ -86,6 +95,7 @@ def mint_approval():
             [Txn.application_args[0] == Bytes("createAsset"), create_asset],
             [Txn.application_args[0] == Bytes("transfer"), asset_transfer_holding],
             [Txn.application_args[0] == Bytes("burn"), asset_transfer_burn],
+            [Txn.application_args[0] == Bytes("accountsHoldingBurn"), saveHoldingBurnAcc],
         )
     )
     handle_closeout = Return(Int(1))

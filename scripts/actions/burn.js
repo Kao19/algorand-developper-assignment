@@ -23,28 +23,6 @@ async function run(runtimeEnv, deployer) {
     // get app info
     const appBurn = deployer.getApp(approvalFileBurn, clearStateFileBurn);
 
-    // transfer algos to burn contract
-    await executeTransaction(deployer, {
-        type: types.TransactionType.TransferAlgo,
-        sign: types.SignType.SecretKey,
-        fromAccount: master,
-        toAccountAddr: appBurn.applicationAccount,
-        amountMicroAlgos: 2e7, //20 algos
-        payFlags: { totalFee: 1000 },
-    });
-
-    // opting in to the asset
-    const optinAssetBurn = ["optin_burn"].map(convert.stringToBytes);
-    await executeTransaction(deployer, {
-        type: types.TransactionType.CallApp,
-        sign: types.SignType.SecretKey,
-        fromAccount: master,
-        appID: appBurn.appID,
-        payFlags: { totalFee: 1000 },
-        foreignAssets: [assetID],
-        appArgs: optinAssetBurn,
-    });
-
     // application call to burn the asset
     const amountToSend = 3000;
     const burn = [convert.stringToBytes("burn"),convert.uint64ToBigEndian(amountToSend)];

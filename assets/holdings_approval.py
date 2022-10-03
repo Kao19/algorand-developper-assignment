@@ -33,7 +33,9 @@ def holdings_approval():
     # opting in to receive the asset
     optin=Seq([
         Assert(basic_checks),
+        Assert(App.globalGet(Bytes("optInStatus")) == Int(0)), # if this variable doesn't exist, the contract hasn't opted in before 
         Assert(Txn.assets[0] == App.globalGet(Bytes("assetID"))),
+        Assert(Txn.sender() == Global.creator_address()),
         InnerTxnBuilder.Begin(),
         InnerTxnBuilder.SetFields({
         TxnField.type_enum: TxnType.AssetTransfer,
@@ -42,6 +44,7 @@ def holdings_approval():
         TxnField.xfer_asset: Txn.assets[0], # Must be in the assets array sent as part of the application call
         }),
         InnerTxnBuilder.Submit(),
+        App.globalPut(Bytes("optInStatus"), Int(1)), #this variable is created and initialized after optin
         Return(Int(1))
     ])
 
@@ -64,7 +67,7 @@ def holdings_approval():
         Assert(Global.group_size() == Int(2)),
         Assert(Gtxn[0].type_enum() == TxnType.Payment),
         Assert(Gtxn[1].type_enum() == TxnType.ApplicationCall),
-        Assert(isBalanceValid>=App.globalGet(Bytes("assetCurrentPrice"))*TeslaAmount),
+        Assert(isBalanceValid>=App.globalGet(Bytes("assetCurrentPrice"))*TeslaAmount + Int(1000)),
         InnerTxnBuilder.Begin(),
         InnerTxnBuilder.SetFields({
         TxnField.type_enum: TxnType.AssetTransfer,

@@ -36,7 +36,7 @@ describe("Success Flow", function () {
             0,
             0,
             1,
-            0,
+            2,
             []
         );
     };
@@ -64,7 +64,7 @@ describe("Success Flow", function () {
             clearStateFileHolding,
             0,
             0,
-            2,
+            3,
             0,
             [convert.uint64ToBigEndian(ID)]
         );
@@ -89,7 +89,21 @@ describe("Success Flow", function () {
         const assetID = Number(getGlobal(appID1, "Id"));
 
         return assetID;
-    }
+    };
+
+    const saveHoldingBurn = (runtime, account, appID, holdigsAppAdress,burnAppAdress) => {
+        const save  = ["accountsHoldingBurn"].map(convert.stringToBytes);
+        const accounts = [holdigsAppAdress,burnAppAdress];
+        runtime.executeTx({
+            type: types.TransactionType.CallApp,
+            sign: types.SignType.SecretKey,
+            fromAccount: account,
+            appID: appID,
+            payFlags: { totalFee: 1000 },
+            accounts: accounts,
+            appArgs: save,
+        });
+    };
     
     it("Deploys mint contract successfully", () => {
         const appInfo = initMint();
@@ -189,11 +203,18 @@ describe("Success Flow", function () {
         appInfoMint = initMint();
         const ID = createdAsset();
         const appInfoHolding = initHolding(ID);
+        const appInfoBurn = initBurn(ID);
+        
+        saveHoldingBurn(runtime,
+            master.account,
+            appInfoMint.appID,
+            appInfoHolding.applicationAccount,
+            appInfoBurn.applicationAccount);
 
         common.optInHolding(runtime, master.account, appInfoHolding.appID, ID);
         
         //do transfer
-        common.transferAsset(runtime,master.account,appInfoMint.appID,appInfoHolding.applicationAccount,ID);
+        common.transferAsset(runtime,master.account,appInfoMint.appID,appInfoHolding.applicationAccount,ID,2000);
 
         const appAccount = runtime.getAccount(appInfoHolding.applicationAccount);
         
@@ -206,7 +227,15 @@ describe("Success Flow", function () {
     it("amount burned successfully" , () => {
         appInfoMint = initMint();
         const ID = createdAsset();
+        const appInfoHolding = initHolding(ID);
         const appInfoBurn = initBurn(ID);
+        
+        saveHoldingBurn(runtime,
+            master.account,
+            appInfoMint.appID,
+            appInfoHolding.applicationAccount,
+            appInfoBurn.applicationAccount);
+
 
         common.optInBurn(runtime, master.account, appInfoBurn.appID, ID);
         

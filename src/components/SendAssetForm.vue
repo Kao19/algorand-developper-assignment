@@ -35,7 +35,7 @@
 import algosdk from 'algosdk';
 import { getAlgodClient } from "../client.js";
 import * as helpers from '../helpers';
-import configHolding from "../artifacts/mint_asset.js.cp.yaml"; 
+import configHolding from "../../artifacts/scripts/mint_asset.js.cp.yaml";
 import wallets from "../wallets.js";
 
 
@@ -111,7 +111,6 @@ export default {
                     break;
                 }
             }
-            
         
             let txn2 = algosdk.makePaymentTxnWithSuggestedParams(
                 sender, 
@@ -140,8 +139,15 @@ export default {
             // Assign group ID
             algosdk.assignGroupID(txns);
 
-            await wallets.sendAlgoSignerTransaction(txns, this.algodClient);
+            const txnID = await wallets.sendAlgoSignerTransaction(txns, this.algodClient);
+            
             this.amountTesla();
+            if(txnID) {
+                this.updateTxn(txnID.txId);
+            }
+            else{
+                this.$alert("something went wrong with your transaction!"); // make sure vue-simple-alert is installed
+            }
         
         },
     },

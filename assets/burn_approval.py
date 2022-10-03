@@ -23,6 +23,7 @@ def burn_approval():
     optin_burn=Seq([
         Assert(basic_checks),
         Assert(Txn.assets[0] == App.globalGet(Bytes("assetID"))),
+        Assert(Txn.sender() == Global.creator_address()),
         InnerTxnBuilder.Begin(),
         InnerTxnBuilder.SetFields({
         TxnField.type_enum: TxnType.AssetTransfer,
