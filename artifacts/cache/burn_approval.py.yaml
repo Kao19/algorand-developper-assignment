@@ -1,0 +1,364 @@
+filename: burn_approval.py
+timestamp: 1664796974
+compiled: BiADAAEEJgEHYXNzZXRJRDEYIhJAAHQxGSMSQABrMRmBAhJAAGExGSQSQABYMRmBBRJAAE4xGSISQAABADYaAIAKb3B0aW5fYnVybhJAAAEAMSAyAxIxCTIDEhAxFTIDEhBENjAAKGQSRDEAMgkSRLEkshAyCrIUIrISNjAAshGzI0MiQyJDI0MiQzEgMgMSMQkyAxIQMRUyAxIQRCg2GgAXZyND
+compiledHash: 34H3JGZ65ZIYZQ7R5LN3HEKU6R7I7CXIZ3X3ISMKOZRZL2W3J4W47HCI24
+srcHash: 612125204
+base64ToBytes:
+    - 6
+    - 32
+    - 3
+    - 0
+    - 1
+    - 4
+    - 38
+    - 1
+    - 7
+    - 97
+    - 115
+    - 115
+    - 101
+    - 116
+    - 73
+    - 68
+    - 49
+    - 24
+    - 34
+    - 18
+    - 64
+    - 0
+    - 116
+    - 49
+    - 25
+    - 35
+    - 18
+    - 64
+    - 0
+    - 107
+    - 49
+    - 25
+    - 129
+    - 2
+    - 18
+    - 64
+    - 0
+    - 97
+    - 49
+    - 25
+    - 36
+    - 18
+    - 64
+    - 0
+    - 88
+    - 49
+    - 25
+    - 129
+    - 5
+    - 18
+    - 64
+    - 0
+    - 78
+    - 49
+    - 25
+    - 34
+    - 18
+    - 64
+    - 0
+    - 1
+    - 0
+    - 54
+    - 26
+    - 0
+    - 128
+    - 10
+    - 111
+    - 112
+    - 116
+    - 105
+    - 110
+    - 95
+    - 98
+    - 117
+    - 114
+    - 110
+    - 18
+    - 64
+    - 0
+    - 1
+    - 0
+    - 49
+    - 32
+    - 50
+    - 3
+    - 18
+    - 49
+    - 9
+    - 50
+    - 3
+    - 18
+    - 16
+    - 49
+    - 21
+    - 50
+    - 3
+    - 18
+    - 16
+    - 68
+    - 54
+    - 48
+    - 0
+    - 40
+    - 100
+    - 18
+    - 68
+    - 49
+    - 0
+    - 50
+    - 9
+    - 18
+    - 68
+    - 177
+    - 36
+    - 178
+    - 16
+    - 50
+    - 10
+    - 178
+    - 20
+    - 34
+    - 178
+    - 18
+    - 54
+    - 48
+    - 0
+    - 178
+    - 17
+    - 179
+    - 35
+    - 67
+    - 34
+    - 67
+    - 34
+    - 67
+    - 35
+    - 67
+    - 34
+    - 67
+    - 49
+    - 32
+    - 50
+    - 3
+    - 18
+    - 49
+    - 9
+    - 50
+    - 3
+    - 18
+    - 16
+    - 49
+    - 21
+    - 50
+    - 3
+    - 18
+    - 16
+    - 68
+    - 40
+    - 54
+    - 26
+    - 0
+    - 23
+    - 103
+    - 35
+    - 67
+tealCode: "#pragma version 6\r
+
+    txn ApplicationID\r
+
+    int 0\r
+
+    ==\r
+
+    bnz main_l14\r
+
+    txn OnCompletion\r
+
+    int OptIn\r
+
+    ==\r
+
+    bnz main_l13\r
+
+    txn OnCompletion\r
+
+    int CloseOut\r
+
+    ==\r
+
+    bnz main_l12\r
+
+    txn OnCompletion\r
+
+    int UpdateApplication\r
+
+    ==\r
+
+    bnz main_l11\r
+
+    txn OnCompletion\r
+
+    int DeleteApplication\r
+
+    ==\r
+
+    bnz main_l10\r
+
+    txn OnCompletion\r
+
+    int NoOp\r
+
+    ==\r
+
+    bnz main_l7\r
+
+    err\r
+
+    main_l7:\r
+
+    txna ApplicationArgs 0\r
+
+    byte \"optin_burn\"\r
+
+    ==\r
+
+    bnz main_l9\r
+
+    err\r
+
+    main_l9:\r
+
+    txn RekeyTo\r
+
+    global ZeroAddress\r
+
+    ==\r
+
+    txn CloseRemainderTo\r
+
+    global ZeroAddress\r
+
+    ==\r
+
+    &&\r
+
+    txn AssetCloseTo\r
+
+    global ZeroAddress\r
+
+    ==\r
+
+    &&\r
+
+    assert\r
+
+    txna Assets 0\r
+
+    byte \"assetID\"\r
+
+    app_global_get\r
+
+    ==\r
+
+    assert\r
+
+    txn Sender\r
+
+    global CreatorAddress\r
+
+    ==\r
+
+    assert\r
+
+    itxn_begin\r
+
+    int axfer\r
+
+    itxn_field TypeEnum\r
+
+    global CurrentApplicationAddress\r
+
+    itxn_field AssetReceiver\r
+
+    int 0\r
+
+    itxn_field AssetAmount\r
+
+    txna Assets 0\r
+
+    itxn_field XferAsset\r
+
+    itxn_submit\r
+
+    int 1\r
+
+    return\r
+
+    main_l10:\r
+
+    int 0\r
+
+    return\r
+
+    main_l11:\r
+
+    int 0\r
+
+    return\r
+
+    main_l12:\r
+
+    int 1\r
+
+    return\r
+
+    main_l13:\r
+
+    int 0\r
+
+    return\r
+
+    main_l14:\r
+
+    txn RekeyTo\r
+
+    global ZeroAddress\r
+
+    ==\r
+
+    txn CloseRemainderTo\r
+
+    global ZeroAddress\r
+
+    ==\r
+
+    &&\r
+
+    txn AssetCloseTo\r
+
+    global ZeroAddress\r
+
+    ==\r
+
+    &&\r
+
+    assert\r
+
+    byte \"assetID\"\r
+
+    txna ApplicationArgs 0\r
+
+    btoi\r
+
+    app_global_put\r
+
+    int 1\r
+
+    return\r\n"
