@@ -78,8 +78,8 @@ export default {
             this.amountTesla();
             let sender = algosdk.mnemonicToSecretKey(process.env.VUE_APP_ACC1_MNEMONIC).addr; //please adjust the sender upon your connected acount on algosigner
             let params = await this.algodClient.getTransactionParams().do();
-            params.fee = 1000
-            params.flatFee = true
+            params.fee = 1000;
+            params.flatFee = true;
 
 
             let applicationInfoResponse = await this.algodClient.getApplicationByID(this.holdingsAppID).do();
@@ -118,7 +118,7 @@ export default {
                 applicationInfoResponse['params']['global-state'][0].value.uint*this.asset_amount, 
                 undefined, 
                 undefined, 
-                params
+                params,
             );
 
             let appArgs = [new Uint8Array(Buffer.from("purchase")), algosdk.encodeUint64(Number(this.asset_amount))];

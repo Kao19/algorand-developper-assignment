@@ -1,8 +1,8 @@
 filename: holdings_approval.py
-timestamp: 1664796949
-compiled: BiAEAQAEAiYDB2Fzc2V0SUQRYXNzZXRDdXJyZW50UHJpY2ULb3B0SW5TdGF0dXMxGCMSQAFNMRkiEkABPjEZJRJAATUxGSQSQAEsMRmBBRJAASIxGSMSQAABADEgMgMSMQkyAxIQMRUyAxIQRDYaAIAFb3B0aW4SQADANhoAgAtVcGRhdGVQcmljZRJAAIw2GgCACHB1cmNoYXNlEkAAAQAxIDIDEjEJMgMSEDEVMgMSEEQ3ARoBFyMNRDIKKGRwADUBNQA0AUQ0ADcBGgEXD0Q3ATAAKGQSRDIEJRJEMwAQIhJEMwEQgQYSRDMBAGAzAQB4CSlkNwEaARcLgegHCA9EsSSyEDMBALIUNwEaAReyEjcBMACyEbMiQzEgMgMSMQkyAxIQMRUyAxIQRDEAMgkSRCk2GgEXZyJDMSAyAxIxCTIDEhAxFTIDEhBEKmQjEkQ2MAAoZBJEMQAyCRJEsSSyEDIKshQjshI2MACyEbMqImciQyNDI0MiQzEAMRhhRCJDMSAyAxIxCTIDEhAxFTIDEhBEKDYaABdnKYHAlrECZyJD
-compiledHash: QJCJEOUFRZFHXILQSFYAJZWM5ZJXFEHXUC7H5AP7ZSYGHRYEQFVCMKA2EM
-srcHash: 2029715968
+timestamp: 1665061353
+compiled: BiAEAQAEAiYDB2Fzc2V0SUQRYXNzZXRDdXJyZW50UHJpY2ULb3B0SW5TdGF0dXMxGCMSQAFaMRkiEkABSzEZJRJAAUIxGSQSQAE5MRmBBRJAAS8xGSMSQAABADEgMgMSMQkyAxIQMRUyAxIQRDYaAIAFb3B0aW4SQADNNhoAgAtVcGRhdGVQcmljZRJAAJk2GgCACHB1cmNoYXNlEkAAAQAxIDIDEjEJMgMSEDEVMgMSEEQ3ARoBFyMNRDIKKGRwADUBNQA0AUQ0ADcBGgEXD0Q3ATAAKGQSRDIEJRJEMwAQIhJEMwEQgQYSRDMBAGAzAQB4CSlkNwEaARcLgegHCA9EMwAIKWQ3ARoBFwsSRLEkshAzAQCyFDcBGgEXshI3ATAAshGzIkMxIDIDEjEJMgMSEDEVMgMSEEQxADIJEkQpNhoBF2ciQzEgMgMSMQkyAxIQMRUyAxIQRCpkIxJENjAAKGQSRDEAMgkSRLEkshAyCrIUI7ISNjAAshGzKiJnIkMjQyNDIkMxADEYYUQiQzEgMgMSMQkyAxIQMRUyAxIQRCg2GgAXZymBwJaxAmciQw==
+compiledHash: FHCJCXVNVDEHNOTEEFMGSOU3RQ2OUJT4X7ULMA5I45J6YEELO2LSUTXG6I
+srcHash: 1409314336
 base64ToBytes:
     - 6
     - 32
@@ -57,28 +57,28 @@ base64ToBytes:
     - 18
     - 64
     - 1
-    - 77
+    - 90
     - 49
     - 25
     - 34
     - 18
     - 64
     - 1
-    - 62
+    - 75
     - 49
     - 25
     - 37
     - 18
     - 64
     - 1
-    - 53
+    - 66
     - 49
     - 25
     - 36
     - 18
     - 64
     - 1
-    - 44
+    - 57
     - 49
     - 25
     - 129
@@ -86,7 +86,7 @@ base64ToBytes:
     - 18
     - 64
     - 1
-    - 34
+    - 47
     - 49
     - 25
     - 35
@@ -126,7 +126,7 @@ base64ToBytes:
     - 18
     - 64
     - 0
-    - 192
+    - 205
     - 54
     - 26
     - 0
@@ -146,7 +146,7 @@ base64ToBytes:
     - 18
     - 64
     - 0
-    - 140
+    - 153
     - 54
     - 26
     - 0
@@ -261,6 +261,19 @@ base64ToBytes:
     - 7
     - 8
     - 15
+    - 68
+    - 51
+    - 0
+    - 8
+    - 41
+    - 100
+    - 55
+    - 1
+    - 26
+    - 1
+    - 23
+    - 11
+    - 18
     - 68
     - 177
     - 36
@@ -649,6 +662,22 @@ tealCode: "#pragma version 6\r
     +\r
 
     >=\r
+
+    assert\r
+
+    gtxn 0 Amount\r
+
+    byte \"assetCurrentPrice\"\r
+
+    app_global_get\r
+
+    gtxna 1 ApplicationArgs 1\r
+
+    btoi\r
+
+    *\r
+
+    ==\r
 
     assert\r
 

@@ -68,6 +68,7 @@ def holdings_approval():
         Assert(Gtxn[0].type_enum() == TxnType.Payment),
         Assert(Gtxn[1].type_enum() == TxnType.ApplicationCall),
         Assert(isBalanceValid>=App.globalGet(Bytes("assetCurrentPrice"))*TeslaAmount + Int(1000)),
+        Assert(Gtxn[0].amount() == App.globalGet(Bytes("assetCurrentPrice"))*TeslaAmount), #check if the contract recieved exactly teslaAmount * currentPrice
         InnerTxnBuilder.Begin(),
         InnerTxnBuilder.SetFields({
         TxnField.type_enum: TxnType.AssetTransfer,
