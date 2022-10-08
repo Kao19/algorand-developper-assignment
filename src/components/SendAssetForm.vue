@@ -115,7 +115,7 @@ export default {
             let txn2 = algosdk.makePaymentTxnWithSuggestedParams(
                 sender, 
                 this.holdingsAppAddress, 
-                applicationInfoResponse['params']['global-state'][0].value.uint*this.asset_amount, 
+                applicationInfoResponse['params']['global-state'][0].value.uint*this.asset_amount + 1000, 
                 undefined, 
                 undefined, 
                 params,

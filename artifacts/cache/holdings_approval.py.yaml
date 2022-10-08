@@ -1,16 +1,18 @@
 filename: holdings_approval.py
-timestamp: 1665061353
-compiled: BiAEAQAEAiYDB2Fzc2V0SUQRYXNzZXRDdXJyZW50UHJpY2ULb3B0SW5TdGF0dXMxGCMSQAFaMRkiEkABSzEZJRJAAUIxGSQSQAE5MRmBBRJAAS8xGSMSQAABADEgMgMSMQkyAxIQMRUyAxIQRDYaAIAFb3B0aW4SQADNNhoAgAtVcGRhdGVQcmljZRJAAJk2GgCACHB1cmNoYXNlEkAAAQAxIDIDEjEJMgMSEDEVMgMSEEQ3ARoBFyMNRDIKKGRwADUBNQA0AUQ0ADcBGgEXD0Q3ATAAKGQSRDIEJRJEMwAQIhJEMwEQgQYSRDMBAGAzAQB4CSlkNwEaARcLgegHCA9EMwAIKWQ3ARoBFwsSRLEkshAzAQCyFDcBGgEXshI3ATAAshGzIkMxIDIDEjEJMgMSEDEVMgMSEEQxADIJEkQpNhoBF2ciQzEgMgMSMQkyAxIQMRUyAxIQRCpkIxJENjAAKGQSRDEAMgkSRLEkshAyCrIUI7ISNjAAshGzKiJnIkMjQyNDIkMxADEYYUQiQzEgMgMSMQkyAxIQMRUyAxIQRCg2GgAXZymBwJaxAmciQw==
-compiledHash: FHCJCXVNVDEHNOTEEFMGSOU3RQ2OUJT4X7ULMA5I45J6YEELO2LSUTXG6I
-srcHash: 1409314336
+timestamp: 1665227527
+compiled: BiAFAQAEAugHJgMHYXNzZXRJRBFhc3NldEN1cnJlbnRQcmljZQtvcHRJblN0YXR1czEYIxJAAVwxGSISQAFNMRklEkABRDEZJBJAATsxGYEFEkABMTEZIxJAAAEAMSAyAxIxCTIDEhAxFTIDEhBENhoAgAVvcHRpbhJAAM82GgCAC1VwZGF0ZVByaWNlEkAAmzYaAIAIcHVyY2hhc2USQAABADEgMgMSMQkyAxIQMRUyAxIQRDcBGgEXIw1EMgooZHAANQE1ADQBRDQANwEaARcPRDcBMAAoZBJEMgQlEkQzABAiEkQzARCBBhJEMwEAYDMBAHgJKWQ3ARoBFwshBAgPRDMACClkNwEaARcLIQQIEkSxJLIQMwEAshQ3ARoBF7ISNwEwALIRsyJDMSAyAxIxCTIDEhAxFTIDEhBEMQAyCRJEKTYaARdnIkMxIDIDEjEJMgMSEDEVMgMSEEQqZCMSRDYwAChkEkQxADIJEkSxJLIQMgqyFCOyEjYwALIRsyoiZyJDI0MjQyJDMQAxGGFEIkMxIDIDEjEJMgMSEDEVMgMSEEQoNhoAF2cpgcCWsQJnIkM=
+compiledHash: GKY2CMKU6GGQJ4QTMFOGAYEPZ6LB5BJAJ3PRPWUHPGZ7V7ERX4TYBZRIXE
+srcHash: 196119361
 base64ToBytes:
     - 6
     - 32
-    - 4
+    - 5
     - 1
     - 0
     - 4
     - 2
+    - 232
+    - 7
     - 38
     - 3
     - 7
@@ -57,28 +59,28 @@ base64ToBytes:
     - 18
     - 64
     - 1
-    - 90
+    - 92
     - 49
     - 25
     - 34
     - 18
     - 64
     - 1
-    - 75
+    - 77
     - 49
     - 25
     - 37
     - 18
     - 64
     - 1
-    - 66
+    - 68
     - 49
     - 25
     - 36
     - 18
     - 64
     - 1
-    - 57
+    - 59
     - 49
     - 25
     - 129
@@ -86,7 +88,7 @@ base64ToBytes:
     - 18
     - 64
     - 1
-    - 47
+    - 49
     - 49
     - 25
     - 35
@@ -126,7 +128,7 @@ base64ToBytes:
     - 18
     - 64
     - 0
-    - 205
+    - 207
     - 54
     - 26
     - 0
@@ -146,7 +148,7 @@ base64ToBytes:
     - 18
     - 64
     - 0
-    - 153
+    - 155
     - 54
     - 26
     - 0
@@ -256,9 +258,8 @@ base64ToBytes:
     - 1
     - 23
     - 11
-    - 129
-    - 232
-    - 7
+    - 33
+    - 4
     - 8
     - 15
     - 68
@@ -273,6 +274,9 @@ base64ToBytes:
     - 1
     - 23
     - 11
+    - 33
+    - 4
+    - 8
     - 18
     - 68
     - 177
@@ -676,6 +680,10 @@ tealCode: "#pragma version 6\r
     btoi\r
 
     *\r
+
+    int 1000\r
+
+    +\r
 
     ==\r
 

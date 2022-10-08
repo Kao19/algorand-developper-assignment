@@ -116,7 +116,7 @@ describe("Success Flow", function () {
         const appAccount = runtime.getAccount(appInfo.applicationAccount);
         assert.equal(appAccount.amount, 2e7);
 
-    });
+    }).timeout(50000);
 
 
     it("Deploys holding contract successfully", () => {
